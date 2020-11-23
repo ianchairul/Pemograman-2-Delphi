@@ -1,0 +1,66 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    Edit1: TEdit;
+    ListBox1: TListBox;
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+VAR
+INPUTNAMA: STRING;
+INPUTJURUSAN : STRING;
+INPUTPRODI : STRING;
+I,J : INTEGER;
+begin
+J := STRTOINT(Edit1.TEXT);
+FOR I := 1 TO J DO
+BEGIN
+INPUTNAMA :=InputBox('NAMA MAHASISWA','MASUKKAN NAMA MAHASISWA','');
+ListBox1.Items.Add(INPUTNAMA);
+INPUTJURUSAN := InputBox('JURUSAN','MASUKKAN JURUSAN MAHASISWA','');
+ListBox1.Items.Add(INPUTJURUSAN);
+INPUTPRODI :=InputBox('PRODI','MASUKKAN PRODI MAHASISWA','');
+ListBox1.Items.Add(INPUTPRODI);
+
+END;
+
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+ListBox1.Items.Clear;
+Edit1.Clear;
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+CLOSE;
+end;
+
+end.
